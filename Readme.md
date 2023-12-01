@@ -1,7 +1,7 @@
 # Личный проект «Readme»
 
 * Студент: [Ivan Eroshkin](https://up.htmlacademy.ru/nodejs-2/5/user/199246).
-* Наставник: `Неизвестно`.
+* Наставник: [Евгений Наумов](https://htmlacademy.ru/profile/naumov_evg).
 
 ---
 
