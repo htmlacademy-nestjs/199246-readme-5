@@ -1,0 +1,61 @@
+{
+  "name": "files-store",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/files-store/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/files-store",
+        "main": "apps/files-store/src/main.ts",
+        "tsConfig": "apps/files-store/tsconfig.app.json",
+        "assets": [
+          "apps/files-store/src/assets"
+        ],
+        "webpackConfig": "apps/files-store/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "files-store:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "files-store:build:development"
+        },
+        "production": {
+          "buildTarget": "files-store:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "apps/files-store/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
